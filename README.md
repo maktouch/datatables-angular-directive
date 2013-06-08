@@ -3,9 +3,6 @@ datatables-angular-directive
 
 An AJAX oriented Datatables for Angular. Simple markup!
 
-## Why
-
-When I decided to learn Angular, the first thing I searched for was datatables compatability. I found a [directive](https://groups.google.com/forum/#!topic/angular/vM2DEMK_NMA) but I did not like the syntax, plus, there was no example for AJAX sets. What better way to learn Angular than writing my first directive to my liking? :D
 
 ## Demo
 
