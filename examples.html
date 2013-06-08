@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html ng-app="exampleapp">
+<head>
+  <title>Datatables Angular Directives</title>  
+
+  <!-- These 3 files are the dependencies. jQuery, Angular and the datatables library file. -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script type="text/javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.min.js"></script>
+	<!-- End -->
+
+	<!-- This is the directive file -->
+	<script type="text/javascript" src="angular.datatables.js"></script>
+	<!-- End -->
+
+	<!-- These files are strictly for styling. Ignore these they are not important -->
+	<link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="datatables.bootstrap.css">
+  <script type="text/javascript" src="datatables.bootstrap.js"></script>
+  <!-- End -->
+
+	<!-- This the Angular controller -->	  
+	<script type="text/javascript">
+
+		// You need to enable the datatablesDirectives 
+		var app = angular.module('exampleapp', ['datatablesDirectives']);
+
+		app.controller('ExampleCtrl', function($scope, $window, $location) {
+			
+			// The directives automatically detects a dtOptions directive.
+			// It will act as a default options for all the datatables in the scope. This is not necessary.
+			$scope.dtOptions = {
+				
+				iDisplayLength: 5,
+
+				// These 2 lines are for styling. Ignore!
+				sDom: "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+				sPaginationType: "bootstrap",
+				// End
+
+			}
+
+			// These are the options for the second DT. It's set in the element tags.
+			$scope.dtOptionsExample2 = {
+				sAjaxSource: 'data.json',
+				sAjaxDataProp: 'result',
+				bProcessing: false,
+				fnRowCallback: function(row, data, index, fullindex) {
+					if (data.id === 1) {
+						angular.element(row).addClass('blue');
+					}
+				}
+			}
+
+
+			// This is an example of column callback
+			$scope.idCB = function(data) {
+				if (data.id > 3) {
+					return '<span class="label label-info">'+data.id+'</span>'
+				} 
+				return '<span class="label label-important">'+data.id+'</span>'
+			}
+
+			// Anoter example
+			$scope.aboutCB = function(data) {
+				return data.about.text.substring(0, 50) + '...';
+			}
+		})
+	</script>
+	<!-- End -->
+
+
+
+</head>
+<body ng-controller="ExampleCtrl">
+
+	<div class="container">
+
+		<div class="row">
+			<div class="span12">
+				<h1>Datatables AJAX Directives</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<p>This datatables directive is more targeted for AJAX use. This is why sajaxsource and mdata are <strong>always required</strong>. If this is not what you are looking for, take a look at this <a href="https://groups.google.com/forum/#!topic/angular/vM2DEMK_NMA" target="_BLANK">directive</a>. I encourage you to look at the source of this page - it is commented and the directive should be simple enough to understand :)</p>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="span12">
+				<h3>Example 1 - Simple</h3>
+
+				<p>First, take a look at this <a href="data.json" target="_BLANK">json file</a>. In this example, all you need is to declare sAjaxSource, and each mData for the columns. sAjaxDataProp is necesary to tell datatables which key it should take its data from. In this example, the key is "result". Other columns options: sclass and bvisible. You can consult the datatables reference <a href="http://datatables.net/ref" target="_BLANK">here</a>.</p>
+
+				<table datatable sAjaxSource="data.json" sAjaxDataProp="result" class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th data-mdata="id" data-sclass="highlight-red">ID</th>
+							<th data-mdata="name">Name</th>
+							<th data-mdata="about.text" data-bvisible="false">About me</th>
+							<th data-mdata="phone">Phone</th>
+							<th data-mdata="email">Email</th>
+							<th data-mdata="age">Age</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+
+			</div>
+
+		</div>
+
+
+
+		<div class="row">
+
+			<div class="span12">
+				<h3>Example 2 - with column callbacks and options from controller</h3>
+
+				<p>In this example, most of the options are declared in the controller. All that is needed is the mData for each column. On the ID and about cols, there's a function name. This will become $scope.idCB() and $scope.aboutCB() respectively. In this example, there's a label badge on the ID and the about text is truncated.</p>
+
+				<table datatable dtOptions="dtOptionsExample2" class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th data-mdata="idCB()" data-sclass="text-center">ID</th>
+							<th data-mdata="name">Name</th>
+							<th data-mdata="aboutCB()">About me</th>
+							<th data-mdata="phone">Phone</th>
+							<th data-mdata="email">Email</th>
+							<th data-mdata="age">Age</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+
+			</div>
+
+		</div>
+
+
+	</div>
+	
+</body>
+</html>
+
+
+
+
