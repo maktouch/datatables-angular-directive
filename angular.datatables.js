@@ -1,4 +1,4 @@
-angular.module('datatablesDirectives', []).directive('datatable', function () {
+angular.module('datatablesDirectives', []).directive('datatable', function ($http) {
   return {
   	// I restricted it to A only. I initially wanted to do something like
   	// <datatable> <thead> ... </thead> </datatable>
