@@ -1,4 +1,3 @@
-
 angular.module('datatablesDirectives', []).directive('datatable', function () {
   return {
   	// I restricted it to A only. I initially wanted to do something like
@@ -49,7 +48,15 @@ angular.module('datatablesDirectives', []).directive('datatable', function () {
 
     		throw "Ajax Source not defined! Use sajaxsource='/api/v1/blabla'";
     	}
-
+    	
+    	// for Angular http inceptors
+        if (typeof options['fnServerData'] === 'undefined') {
+            options['fnServerData'] = function (sSource, aoData, resultCb) {
+                $http.get(sSource, aoData).then(function (result) {
+                    resultCb(result.data);
+                });
+            };
+        }
 
     	// Get the column options, put it in a aocolumn object.
     	// Obviously, mdata is the only one required.
