@@ -7,7 +7,7 @@ An AJAX oriented Datatables for Angular. Simple markup!
 ## Demo
 
 I really suggest you look at the source.
-[Demo on my website](http://maktouch.net/github/maktouch/datatables-ajax-angular/examples.html)
+[Demo on my website](http://maktouch.github.io/datatables-angular-directive/src/examples.html)
 
 ## Quick start
 
