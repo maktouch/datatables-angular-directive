@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Datatables-angular-directive : An AJAX oriented Datatables for Angular. Simple markup!" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Datatables-angular-directive</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/maktouch/datatables-angular-directive">View on GitHub</a>
+
+          <h1 id="project_title">Datatables-angular-directive</h1>
+          <h2 id="project_tagline">An AJAX oriented Datatables for Angular. Simple markup!</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/maktouch/datatables-angular-directive/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/maktouch/datatables-angular-directive/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="datatables-angular-directive" class="anchor" href="#datatables-angular-directive"><span class="octicon octicon-link"></span></a>datatables-angular-directive</h1>
+
+<p>An AJAX oriented Datatables for Angular. Simple markup! </p>
+
+<h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>I really suggest you look at the source.
+<a href="http://maktouch.net/github/maktouch/datatables-ajax-angular/examples.html">Demo on my website</a></p>
+
+<h2>
+<a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick start</h2>
+
+<div class="highlight highlight-html"><pre><span class="c">&lt;!-- include jQuery, Angular and Datatatables here --&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"angular.datatables.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+        <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'exampleapp'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'datatablesDirectives'</span><span class="p">]);</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;table</span> <span class="na">datatable</span> <span class="na">sAjaxSource=</span><span class="s">"data.json"</span> <span class="na">sAjaxDataProp=</span><span class="s">"result"</span> <span class="na">class=</span><span class="s">"table table-striped table-bordered"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-mdata=</span><span class="s">"id"</span> <span class="na">data-sclass=</span><span class="s">"highlight-red"</span><span class="nt">&gt;</span>ID<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-mdata=</span><span class="s">"name"</span><span class="nt">&gt;</span>Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-mdata=</span><span class="s">"about.text"</span> <span class="na">data-bvisible=</span><span class="s">"false"</span><span class="nt">&gt;</span>About me<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-mdata=</span><span class="s">"phone"</span><span class="nt">&gt;</span>Phone<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-mdata=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">data-mdata=</span><span class="s">"age"</span><span class="nt">&gt;</span>Age<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;tbody&gt;&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div>
+
+<h2>
+<a name="docs" class="anchor" href="#docs"><span class="octicon octicon-link"></span></a>Docs</h2>
+
+<p>It's pretty straightforward to use if you know datatables. Here is the link to <a href="http://datatables.net/usage/">datatable's documentation</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Datatables-angular-directive maintained by <a href="https://github.com/maktouch">maktouch</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
