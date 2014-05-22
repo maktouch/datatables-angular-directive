@@ -1,7 +1,7 @@
 datatables-angular-directive
 ============================
 
-An AJAX oriented Datatables for Angular. Simple markup!
+An AJAX oriented Datatables for Angular. Simple markup! It is meant only for displaying data. You'll have to hack it up to make it work with ng-click for interactions. 
 
 
 ## Demo
